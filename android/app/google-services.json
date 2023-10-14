@@ -1,0 +1,48 @@
+{
+  "project_info": {
+    "project_number": "638367529256",
+    "project_id": "amrut-d8da6",
+    "storage_bucket": "amrut-d8da6.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:638367529256:android:e7b8005b453e0de8a2381d",
+        "android_client_info": {
+          "package_name": "com.example.amrut"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyARfpD4QbPhj0JfnJsLpaFxIwMqaXEbzIo"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:638367529256:android:23814cd1631358c0a2381d",
+        "android_client_info": {
+          "package_name": "com.example.rkku_firebase_test"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyARfpD4QbPhj0JfnJsLpaFxIwMqaXEbzIo"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
