@@ -19,29 +19,40 @@ class _loginscreenState extends State<loginscreen> {
   final _passwordController = TextEditingController();
 
   Future SignIn() async {
+    //loding circle
+    showDialog(
+        context: context,
+        builder: (context) {
+          return Center(
+            child: CircularProgressIndicator(),
+          );
+        });
     try {
-      //loding circle
-      showDialog(
-          context: context,
-          builder: (context) {
-            return Center(
-              child: CircularProgressIndicator(),
-            );
-          });
-
       //login button func
       await FirebaseAuth.instance.signInWithEmailAndPassword(
           email: _emailController.text.trim(),
           password: _passwordController.text.trim());
       //pop the loding circle
+      if (context.mounted) Navigator.pop(context);
+    }
+    //display any errors
+    on FirebaseAuthException catch (e) {
+      //pop the loding circle
       Navigator.of(context).pop();
-    } on FirebaseAuthException catch (e) {
       print(e);
       showDialog(
         context: context,
         builder: (context) {
           return AlertDialog(
             content: Text(e.message.toString()),
+            actions: <Widget>[
+              TextButton(
+                child: Text('Ok'),
+                onPressed: () {
+                  Navigator.of(context).pop();
+                },
+              ),
+            ],
           );
         },
       );

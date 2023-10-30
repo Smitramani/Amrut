@@ -39,6 +39,7 @@ class card_detail extends StatelessWidget {
             decoration: BoxDecoration(
                 color: const Color(0xFFAECCC2),
                 borderRadius: BorderRadius.circular(10)),
+            child: Center(child: Text('gst no:12kasnk23')),
           ),
         )
       ]),

@@ -16,6 +16,10 @@ class _homeScreenState extends State<homeScreen> {
   List<UserProfile> userProfiles = [];
   final TextEditingController _usernameController = TextEditingController();
 
+  void logout() {
+    FirebaseAuth.instance.signOut();
+  }
+
   void _addProfile(String username) {
     bool userExists = userProfiles.any((user) => user.username == username);
 
@@ -96,19 +100,18 @@ class _homeScreenState extends State<homeScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      extendBodyBehindAppBar: true,
+      appBar: AppBar(
+        actions: [IconButton(onPressed: logout, icon: Icon(Icons.logout))],
+        backgroundColor: Colors.transparent,
+        elevation: 0,
+      ),
       body: Container(
         height: double.infinity,
         width: double.infinity,
         color: const Color(0xFF243F49),
         child: Stack(
           children: [
-            MaterialButton(
-              onPressed: () {
-                FirebaseAuth.instance.signOut();
-              },
-              color: Colors.deepPurple,
-              child: Text("sign out"),
-            ),
             Padding(
               padding: const EdgeInsets.only(top: 55),
               child: Marquee(

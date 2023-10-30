@@ -1,7 +1,9 @@
+import 'package:amrut/models/customers.dart';
 import 'package:amrut/pages/home_page.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
+
 
 class signupscreen extends StatefulWidget {
   final VoidCallback showLoginScreen;
@@ -25,19 +27,22 @@ class _signupscreenState extends State<signupscreen> {
           password: _passwordController.text.trim());
 
       //add user details
-      addUserDetails(
+      apiServices ref = apiServices();
+      ref.addUserDetails(
         _usernameController.text.trim(),
         _emailController.text.trim(),
+        
       );
     }
   }
 
-  Future addUserDetails(String userName, String email) async {
-    await FirebaseFirestore.instance.collection('users').add({
-      "user name": userName,
-      "email": email,
-    });
-  }
+  // Future addUserDetails(String userName, String email) async {
+  //   CollectionReference user = FirebaseFirestore.instance.collection('users');
+  //   var result = await user.add({
+  //     "user name": userName,
+  //     "email": email,
+  //   });
+  // }
 
   bool passwordConfirmed() {
     if (_passwordController.text.trim() ==
